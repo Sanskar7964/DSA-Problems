@@ -287,3 +287,27 @@ class Solution:
             res = max(res, count_0s+count_1s)
 
         return res """
+
+""" 
+#path crossing: we can use co-ordinates in a hashSet and manipulate values according to our given string
+class Solution:
+    def PathCrossing(self, path: str)-> bool:
+        x, y  = 0 , 0
+
+        visit = set()
+        visit.add("0 , 0")
+
+        for c in path:
+            if path[c] == "N":
+                y+=1
+            if path[c]== "S":
+                y-=1
+            if path[c] == "W":
+                x-=1
+            else:
+                x+=1
+            if f"{x},{y}" in visit:
+                return True
+            else:
+                visit.add(f"{x},{y}")
+        return False """
