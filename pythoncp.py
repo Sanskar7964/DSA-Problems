@@ -272,3 +272,18 @@ class Solution:
         for n, c in paths:
             if c not in set:
                 return c """
+
+""" #max score after splitting the string
+class Solution:
+    def maxScore(self, s: str)-> int:
+        n = len(s)
+        res = 0
+        for i in range(1, n):
+            left = s[:i]
+            right = s[i:]
+
+            count_0s  = left.count('0')
+            count_1s = right.count('1')
+            res = max(res, count_0s+count_1s)
+
+        return res """
