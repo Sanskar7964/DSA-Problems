@@ -73,12 +73,12 @@ def helper(stones, index, k, memo):
 
 
         return res """
-
+"""
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
-        self.right = right
+        self.right = right"""
 """ 
 class solution:
     def maxDepth(self, root:Treenode) -> int:
@@ -176,3 +176,99 @@ class solution:
      return res
      
  """
+
+""" class Solution:
+    def MonotonicArray(self, nums: list)-> bool:
+        increasing = True
+        decreasing  = True
+
+        if len(nums) < 2:
+            return True
+
+        for i in range(len(nums)):
+            if nums[i] > nums[i-1]:
+                increasing = False
+               
+            if nums[i] < nums[i-1]:
+                decreasing = False
+                
+
+            if not increasing and not decreasing:
+                return False
+        return increasing or decreasing """
+
+
+""" class Solution:
+# keep a counter and using Ncr or just count sum.
+    def numberofgoodpairs(self, nums:list)-> int:
+        #using a counter
+        cnt = Counter(nums)
+        count = {}
+        ans = 0
+        for n, c in cnt:
+            ans += c*(c-1)//2
+        return ans """
+""" 
+    #using a hash map
+        for i in range(len(nums)):
+            ans += count[i]
+            count[i]+=1
+            
+        return ans """
+
+""" 
+#pascals triangle function to get the desired row.
+class Solution:
+    def pascalsTriangle(self, rowIndex:int)-> list:
+        res = [[1]]
+        for i in range(rowIndex+1):
+            triangle =[1]*(i+1)
+            for j in range(1, i):
+                triangle[j] = res[i-1][j] + res[i-1][j+1]
+            res.append(triangle)
+        return res[rowIndex]
+
+ """ 
+""" class Solution:
+    def goodstrings(self, words: list[str], chars: str)-> int:
+        str_count = Counter(chars)
+        res = 0
+
+        if not words:
+            return -1
+
+        for c in range(len(words)):
+            count = Counter(c)
+            if count[c] == str_count[c]:
+                res += len(count)
+            count[c] = 0
+        return res """
+
+""" class Solution:
+    def Largestthreedigit(self, num: str)-> str:
+        count_char = Counter(num)
+        num = ''.join(list(sorted(num)))
+        res = ""
+        if not num:
+            return res
+
+        for c in range(len(num)-1, 0, -1):
+            if count_char[c] == 3:
+                res = "c"+"c"+"c"
+                count_char[c] = 0
+                return res
+                
+        return ""
+             """
+""" 
+#destination city 
+class Solution:
+    def DestinationCity(self, paths: list[list[str]])-> str:
+        lst = set()
+
+        for n,c in paths:
+            lst.add[n]
+
+        for n, c in paths:
+            if c not in set:
+                return c """
