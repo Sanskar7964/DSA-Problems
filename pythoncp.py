@@ -311,3 +311,104 @@ class Solution:
             else:
                 visit.add(f"{x},{y}")
         return False """
+
+
+
+""" import heapq
+
+class KthLargest:
+    def __init__(self, nums: list, k : int):
+        self.minHeap, self.k = nums, k
+        heapq.heapify(self.minHeap)
+        while (len(self.minHeap)>k):
+            heapq.heappop(self.minHeap)
+    
+    def add(self, val:int)->int:
+        if len(self.minHeap) > self.k:
+            heapq.heappop(self.minHeap)
+        if len(self.minHeap) < self.k or val> self.minHeap[0]:
+            heapq.heappush(self.minHeap, val)
+
+        return self.minHeap[0]
+        
+ """
+
+""" class Solution:
+    def charactersMakeEqual(self, words: list[str])-> bool:
+
+        s = ''.join(words)
+        count = Counter(s)
+
+        for c in count:
+            if count[c]%len(words)!=0:
+                return False
+        return True """
+
+""" from collections import defaultdict
+class Solution:
+    def LargestSubstrTwoChar(self, s: str)-> int:
+        indexing = {}
+        #res = -1  
+
+        for n, c in enumerate (s):
+            if c not in indexing:
+                indexing[c] = n
+            else: 
+                res = max(res, n - indexing[c]- 1)
+        return res """
+
+""" class Solution:
+    def SetMismatch(self, nums:list[int])-> list[int]:
+       
+        res = []
+        n  = len(nums) 
+        count = Counter(nums)
+        
+        for c in range(1, n+1):
+            if count[c]>1:
+                 nums1 = c
+            if count[c] == 0:
+                nums2 = c
+        return [nums1, nums2]
+
+        #method 2
+        res = [0,0]
+        n = len(nums)
+
+        for n in nums:
+            n = abs(n)
+            nums[n-1] = -nums[n-1]
+
+            if nums[n-1]>0
+            res[0] = n
+        for i, c in enumerate(nums):
+            if n>0 and i+1 != res[0]:
+             res[1] = i+1
+             return res
+
+ """
+
+""" class Solution:
+    def UniqueChars(self, s: str)-> int:
+        count = Counter(s)
+
+        for i, n in enumerate(s):
+            if count[n] == 1:
+           
+                return i
+        return -1
+
+ """
+""" class Solution:
+    def TimetoBuyTickets(self, tickets: list[int], k: int)-> int:
+        
+        res = 0
+
+        for  i in range(len(tickets)):
+            if i<=k:
+                res += min(tickets[i], tickets[k])
+            else: 
+                res += min(tickets[i], tickets[k]-1 )
+
+        return res
+ """
