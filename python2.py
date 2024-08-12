@@ -85,3 +85,55 @@ class MyHashMap:
                 return
             curr = curr.next
         return -1 """
+
+
+""" class Solution:
+    def TimetoBuyTickets(self, tickets: list[int], k: int)-> int:
+        
+        res = 0
+
+        for  i in range(len(tickets)):
+            if i<=k:
+                res += min(tickets[i], tickets[k])
+            else: 
+                res += min(tickets[i], tickets[k]-1 )
+
+        return res
+ """
+""" 
+class Solution:
+    def SpecialArrayWithX(self, nums: list[int])-> int:
+        n = len(nums)
+        res = [1]*(n)
+        nums.sort()
+
+        for i in range(n):
+            res[i] = n-i
+
+        for j in range(n):
+            if res[j] <= nums[j]:
+                return res[j]
+        return -1
+
+ """
+
+""" #top k most frequent elements // using bucket sort
+# way of sorting decrementing freq // sorted_items = sorted(mapping.items(), key: lambda item: items[1], reverse = True)
+class Solution:
+    def TopKmostElement(self, nums: list[int], k: int)-> list[int]:
+        mapping = {}
+        freq = [[] for i in range(len(nums)+1)]
+
+        for i in range(len(nums)):
+            mapping[i] = 1+ mapping.get(i,0)
+        
+        for n, c in mapping.items():
+            freq[c].append(n)
+        
+        res = []
+        for i in range(len(freq)-1, 0, -1):
+            for n in freq[i]:
+                res.append(n)
+                if len(res) == k:
+                    return res """
+
