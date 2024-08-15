@@ -412,3 +412,202 @@ class Solution:
 
         return res
  """
+
+  
+""" class Solution:
+    def ValidPalindrome(self, s:str)-> bool:
+       #dummy = ''.join(c.lower() for c in s if c.isalnum())
+
+        #return dummy == dummy[::-1] 
+
+        dummy = ""
+
+        for c in s:
+            if c.isalnum():
+                dummy+=c.lower()
+            
+
+        i, j = 0, len(dummy)-1
+
+        while i<j:
+            if dummy[i] != dummy[j]:
+                return False
+            i+=1
+            j-=1
+        return Tr
+        
+ """
+
+# sliding window i = j cababac, abccba even length string = character count equal
+#odd length string character count of 1 character > than the rest
+ 
+""" class Solution:
+   def PalindromicSubstrings(self, s: str)-> int:
+       res1 = 0
+
+       for i in range(len(s)):
+           left, right = i, i
+           while left>=0 and right<len(s) and s[left] == s[right]:
+               res1+=1
+               left -=1
+               right +=1
+        
+
+     
+           left, right = i, i+1
+           while left>=0 and right<len(s) and s[left] == s[right]:
+               res1+=1
+               left -=1
+               right +=1
+           
+       return res1
+    """
+""" 
+class Solution:
+    def encodeDecode(self, strs: list)-> list:
+
+        def encode(self, strs):
+            res  = ""
+            for s in strs:
+                res  = str(len(s))+'#'+s
+            return res
+        
+        def decode(self, str):
+            res = []
+            i = 0
+
+            while i<len(str):
+                j = i
+                while str[j] != '#':
+                    j+=1
+                    length = int(str[i:j])
+                res.append(str[j+1:length+j+1])
+                i = j+1+length
+            return res
+ """
+""" class Solution:
+    def KthDistinct(self, arr: list, k: int)-> str:
+        count  = Counter(arr)
+        distinct_count = 0
+        
+        for i in arr:
+            if count[i] == 1:
+                distinct_count +=1
+
+                if distinct_count ==k:
+                    return str(i)
+        return ""
+
+ """
+
+""" class Solution:
+    def TopKelements(self, nums: list, k:int)->list[int]:
+        count = {}
+        freq = [[] for i in range(len(nums)+1)]
+
+        for n in nums:
+            count[n] = 1+ count.get(n,0)
+
+        for n, c in count.items():
+            freq[c].append(n)
+        res = []
+        for i in range(len(freq)-1, 0, -1):
+            for n in freq[i]:
+                res.append(n)
+
+                if len(res) ==k:
+                    return res """
+""" class Solution:
+    def triangle(self, n:int)->list[int]:
+        res = []
+
+        for i in range(n):
+            rows = [1]*(n+1)
+            for j in range(1, i):
+                rows[j] = rows[i-1][j-1]+rows[i-1][j]
+            res.append(rows)
+
+        print(' '.join(map(str, rows)).center(n * 2))
+
+    
+    n=5
+    triangle(n) """
+
+""" class NumArray:
+
+    def __init__(self, nums:list[int]):
+        self.prefix = []
+        curr = 0
+
+        for i in  range(nums):
+            curr += nums[i]
+            self.prefix.append(curr)
+
+    def sumRange(self, left:int, right:int)-> int:
+        sum  = self.prefix[right] - self.prefix[left] if left>0 else 0
+
+        return sum """
+
+#xyzy
+
+""" class Solution:
+    def PermutationString(self, s1: str, s2: str)-> bool:
+        new_substring = ""
+        n = len(s1)
+
+        for i in range(n):
+            if n == 1 and s1 in  s2:
+                return True
+
+            elif n ==2:
+                new_substring += s1[0]
+                new_substring += s1[1]
+                if new_substring in s2:
+                    return True
+            else:
+                new_substring += s1[0:i] + s1[i+1: n]
+                new_substring += "s1[i]"
+
+                if new_substring in s2:
+                    return True
+        return False
+
+         """
+""" class Solution:
+    def ReorganizeString(self, s: str)-> str:
+        count = {}
+
+        for i in range(s):
+            count[s[i]] = 1 + count.get(i, 0)
+        
+        if len(s)%2 != 0:
+            if max(count.values()) - sum()
+
+    
+             """
+class Solution:
+    def LemonadeChange(self, bills: list[int])-> bool:
+        cnt5 = 0
+        cnt10 = 0
+
+        for b in bills:
+            if b ==5:
+                cnt5 +=1
+            if b == 10:
+                cnt10 +=1
+
+            change = b-5
+            if change == 5:
+                if cnt5>0:
+                    cnt5 -=1
+                
+            if change == 15:
+                if  cnt5 > 0 and cnt10 > 0:
+                    cnt10 -=1
+                    cnt5 -=1
+                elif cnt5 >=3:
+                    cnt5 -= 3
+                else:
+                    return False
+        return True
+    
